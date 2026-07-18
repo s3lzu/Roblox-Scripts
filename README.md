@@ -1,4 +1,4 @@
 # Roblox-Scripts
-The Buy Speed Currently Does Not Work and i am to lazy to fix it.
+# Currently Only Supports 1 Game - https://www.roblox.com/games/77926988392379/Troll-a-Brainrot
 
-# Will Probably Fix The Buy Speed And Add More Features Later
+# Will Add Support For Diffrent Games Later
