@@ -2,7 +2,7 @@
 
 local Event = game:GetService("ReplicatedStorage").Events.RewardEscape
 Event:FireServer(
-    "Madung",
+    "67",
     "Neon",
     "Celestial"
 )
