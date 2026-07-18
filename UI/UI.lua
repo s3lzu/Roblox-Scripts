@@ -88,6 +88,12 @@ UpgradesTab:AddButton({
     end
 })
 
+UpgradesTab:AddButton({
+    Name = "Buy Rebirth",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/s3lzu/Roblox-Scripts/main/24523.lua"))()
+    end
+})
 
 MainTab:AddButton({
     Name = "Destroy UI",
