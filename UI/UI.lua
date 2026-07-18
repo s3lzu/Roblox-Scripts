@@ -81,6 +81,14 @@ UpgradesTab:AddButton({
     end
 })
 
+UpgradesTab:AddButton({
+    Name = "Buy Base Upgrade",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/s3lzu/Roblox-Scripts/main/34822458.lua"))()
+    end
+})
+
+
 MainTab:AddButton({
     Name = "Destroy UI",
     Callback = function()
@@ -88,4 +96,9 @@ MainTab:AddButton({
     end
 })
 
-print("Ricky UI Loaded - " .. GameName)
+
+local Event = game:GetService("ReplicatedStorage").Events.ShowNotification
+firesignal(Event.OnClientEvent, 
+    "Ricky UI Loaded",
+    "Success"
+)
