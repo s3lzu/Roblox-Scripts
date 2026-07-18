@@ -1,8 +1,6 @@
--- Best Brainrot --
+-- Buy Best Lucky Block --
 
-local Event = game:GetService("ReplicatedStorage").Events.RewardEscape
+local Event = game:GetService("ReplicatedStorage").Events.RequestLuckyBlockPurchase
 Event:FireServer(
-    "Madung",
-    "Neon",
-    "Celestial"
+    "Rainbow"
 )
