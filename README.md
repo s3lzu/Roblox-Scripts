@@ -1,4 +1,7 @@
-# Roblox-Scripts
-# Currently Only Supports 1 Game - https://www.roblox.com/games/77926988392379/Troll-a-Brainrot
+   Troll a Brainrot 
+    Status: Active & Updated
+    Game: Troll a Brainrot
+    Author: s3lzu
 
-# Updated Script With New Ui Libary And Remove All Old Lua Scripts
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/s3lzu/Roblox-Scripts/refs/heads/main/UI/UI.lua"))()
