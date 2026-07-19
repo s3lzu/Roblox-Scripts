@@ -1,110 +1,64 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
 
--- ==================== GAME CHECK ====================
-local AllowedGameID = 77926988392379
+-- Main UI Libary --
 
-local function GetGameId()
-    return game.GameId or game.PlaceId or 0
-end
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("s3lzu | Troll A Brainrot", "Ocean")
 
-if GetGameId() ~= AllowedGameID then
-    OrionLib:MakeNotification({
-        Name = "Game Check",
-        Content = "Wrong game detected.\nBypassing for testing...",
-        Image = "rbxassetid://6031302994",
-        Time = 4
-    })
-    wait(2)
-end
+-- Tabs --
 
--- Get Game Name
-local success, GameName = pcall(function()
-    return game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local MainTab = Window:NewTab("Brain Rots")
+local UpgradeTab = Window:NewTab("Upgrades")
+
+-- Sections --
+
+local MainSection = MainTab:NewSection("Give Brainrots")
+local UpgradeSection = UpgradeTab:NewSection("Upgrades")
+
+-- Functions --
+
+MainSection:NewButton("Give Madung", "Gives Best Brainrot", function()
+    local Event = game:GetService("ReplicatedStorage").Events.RewardEscape
+Event:FireServer(
+    "Madung",
+    "Neon",
+    "Celestial"
+)
 end)
 
-if not success then
-    GameName = "Unknown Game"
-end
-
--- ==================== MAIN UI ====================
-local Window = OrionLib:MakeWindow({
-    Name = "Ricky UI - " .. GameName,
-    HidePremium = false,
-    SaveConfig = true,
-    ConfigFolder = "RickyUIConfig",
-    IntroEnabled = false
-})
-
--- Main Tab
-local MainTab = Window:MakeTab({
-    Name = "Main",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
-
-MainTab:AddSection({ Name = "Main Features" })
-
-MainTab:AddButton({
-    Name = "Give Madung",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/s3lzu/Roblox-Scripts/main/241521621.lua"))()
-    end
-})
-
-MainTab:AddButton({
-    Name = "Give 67",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/s3lzu/Roblox-Scripts/main/23235.lua"))()
-    end
-})
-
--- Upgrades Tab
-local UpgradesTab = Window:MakeTab({
-    Name = "Upgrades",
-    Icon = "rbxassetid://6031094678",
-    PremiumOnly = false
-})
-
-UpgradesTab:AddSection({ Name = "Upgrades" })
-
-UpgradesTab:AddButton({
-    Name = "Buy +10 Speed",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/s3lzu/Roblox-Scripts/main/23854282.lua"))()
-    end
-})
-
-UpgradesTab:AddButton({
-    Name = "Buy Best Lucky Block",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/s3lzu/Roblox-Scripts/main/2352151.lua"))()
-    end
-})
-
-UpgradesTab:AddButton({
-    Name = "Buy Base Upgrade",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/s3lzu/Roblox-Scripts/main/34822458.lua"))()
-    end
-})
-
-UpgradesTab:AddButton({
-    Name = "Buy Rebirth",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/s3lzu/Roblox-Scripts/main/24523.lua"))()
-    end
-})
-
-MainTab:AddButton({
-    Name = "Destroy UI",
-    Callback = function()
-        OrionLib:Destroy()
-    end
-})
-
-
-local Event = game:GetService("ReplicatedStorage").Events.ShowNotification
-firesignal(Event.OnClientEvent, 
-    "Ricky UI Loaded",
-    "Success"
+MainSection:NewButton("Give 67", "Gives Best Brainrot", function()
+    local Event = game:GetService("ReplicatedStorage").Events.RewardEscape
+Event:FireServer(
+    "67",
+    "Neon",
+    "Celestial"
 )
+end)
+
+UpgradeSection:NewButton("Rebirth", "Rebirths", function()
+    local Event = game:GetService("ReplicatedStorage").Events.RequestRebirth
+Event:FireServer()
+end)
+
+UpgradeSection:NewButton("Buy Speed", "Buys +10 speed", function()
+    local Event = game:GetService("ReplicatedStorage").Events.RequestUpgradeAction
+Event:FireServer(
+    "Speed",
+    "10"
+)
+end)
+
+UpgradeSection:NewButton("Buy Best Lucky Block", "Buys Best Lucky Block", function()
+    local Event = game:GetService("ReplicatedStorage").Events.RequestLuckyBlockPurchase
+Event:FireServer(
+    "Rainbow"
+)
+end)
+
+UpgradeSection:NewButton("Upgrade Base", "Upgrades Base", function()
+    local Event = game:GetService("ReplicatedStorage").Events.RequestBaseUpgrade
+Event:FireServer()
+end)
+
+MainSection:NewKeybind("Toggle UI Deafult Key F", "Toggles The Ui", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
