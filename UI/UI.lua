@@ -62,3 +62,12 @@ end)
 MainSection:NewKeybind("Toggle UI Deafult Key F", "Toggles The Ui", Enum.KeyCode.F, function()
 	Library:ToggleUI()
 end)
+
+wait(3)
+
+local Event = game:GetService("ReplicatedStorage").Events.NewDiscovery
+firesignal(Event.OnClientEvent, 
+    "@dsgheahe on roblox",
+    "s3lzu made this script",
+    1
+)
